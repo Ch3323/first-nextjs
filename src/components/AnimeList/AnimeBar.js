@@ -12,7 +12,7 @@ import Loading from "../Loading";
 import AnimeCard from "./AnimeCard";
 import Link from "next/link";
 
-function AnimeBar({ apiUrl }) {
+function AnimeBar({ apiUrl, header }) {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -44,19 +44,14 @@ function AnimeBar({ apiUrl }) {
     fetchTrending();
   }, [apiUrl]);
 
-  const title =
-    animeList[0]?.season && animeList[0]?.year
-      ? `${animeList[0].season.charAt(0).toUpperCase()}${animeList[0].season.slice(1)} ${animeList[0].year} Anime`
-      : "This Season Anime";
-
   return loading ? (
-    <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden">
+    <div className="absolute left-0 w-full">
       <Loading />
     </div>
   ) : (
     <div>
       <div className="flex items-end justify-between">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">{title}</h1>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 px-2">{header}</h1>
         <Link className="mb-3" href={"/anime/season"}>
           <span>View more</span>
         </Link>
@@ -72,7 +67,7 @@ function AnimeBar({ apiUrl }) {
         >
           <CarouselContent>
             {animeList.map((anime) => (
-              <CarouselItem className="basis-1/5 aspect-[3/4]" key={anime.mal_id}>
+              <CarouselItem className="basis-1/3 md:basis-1/4 2xl:basis-1/5 aspect-[3/4]" key={anime.mal_id}>
                 <AnimeCard anime={anime} />
               </CarouselItem>
             ))}
