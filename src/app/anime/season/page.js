@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import AnimeCard from "@/components/AnimeList/AnimeCard";
 import Loading from "@/components/Loading";
 
-function page({ apiUrl = "https://api.jikan.moe/v4/seasons/now" }) {
+function Page({ apiUrl = "https://api.jikan.moe/v4/seasons/now" }) {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -64,4 +64,4 @@ function page({ apiUrl = "https://api.jikan.moe/v4/seasons/now" }) {
     </div>
   );
 }
-export default page;
+export default Page;
