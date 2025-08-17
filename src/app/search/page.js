@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AnimeCard from "@/components/AnimeList/AnimeCard";
+import Loading from "@/components/Loading";
 
 function SearchPage() {
   const searchParams = useSearchParams();
@@ -39,7 +40,11 @@ function SearchPage() {
         </h1>
         <hr />
 
-        {loading && <p>Loading...</p>}
+        {loading && (
+          <div className="w-full h-screen">
+            <Loading />
+          </div>
+        )}
 
         {!loading && results.length === 0 && <p>No results found.</p>}
 

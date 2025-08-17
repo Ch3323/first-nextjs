@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Loading from "../Loading";
 import AnimeCharacter from "./AnimeCharacter";
+import StreamingSite from "./StreamingSite";
 
 function AnimeDetail() {
   const params = useParams();
@@ -92,6 +93,8 @@ function AnimeDetail() {
               {anime.synopsis}
             </p>
           )}
+
+          <StreamingSite animeId={animeId}/>
 
           {anime.trailer?.embed_url && (
             <div className="mt-6">

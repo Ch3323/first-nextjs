@@ -11,14 +11,18 @@ function AnimeList() {
       <Banner />
       <main className="container flex xl:flex-row flex-col gap-20 mx-auto px-4 sm:px-12 lg:px-24 py-8">
         <div className="flex flex-col gap-6">
-          {/* ซีซั่นปัจจุบัน - แบบ carousel */}
           <AnimeBar
             apiUrl={"https://api.jikan.moe/v4/seasons/now"}
             header="Current Season Anime"
           />
-          <AnimeOther/>
+          <AnimeOther />
         </div>
         <div>
+          <AnimeRanking
+            apiUrl="https://api.jikan.moe/v4/top/anime?filter=airing"
+            header="Top Airing Anime"
+          />
+
           <AnimeRanking
             apiUrl="https://api.jikan.moe/v4/top/anime?filter=upcoming"
             header="Top Upcoming Anime"
