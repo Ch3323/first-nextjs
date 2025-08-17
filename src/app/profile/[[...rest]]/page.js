@@ -1,13 +1,11 @@
+"use client";
+
 import {
   UserProfile,
   SignedIn,
   SignedOut,
   RedirectToSignIn,
 } from "@clerk/nextjs";
-
-export async function generateStaticParams() {
-  return [{ rest: ["profile"] }];
-}
 
 function ProfilePage() {
   return (
